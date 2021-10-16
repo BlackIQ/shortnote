@@ -5,10 +5,16 @@ overview of notes
 {% endblock title %}
 
 {% block body %}
-<h1>
-Overview of notes
-</h1>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus consequatur commodi distinctio nihil quibusdam ipsum natus dolorem assumenda harum ipsam, nesciunt sapiente. Temporibus architecto inventore quidem. Nemo fuga nobis sunt!
-</p>
+<nav>
+    <div class="py-3 position-sticky d-flex justify-content-center">
+        <div class="col-6 d-flex flex-row align-items-stretch">
+            <form action="" method="GET" class="w-100 me-2 d-flex">
+                <input type="text" class="form-control rounded-pill" placeholder="search for your shortnotes" id="search-input">
+            </form>
+            <a href="#" role="button" class="btn btn-primary rounded-circle">
+                <i class="far fa-plus"></i>
+            </a>
+        </div>
+    </div>
+</nav>
 {% endblock body %}

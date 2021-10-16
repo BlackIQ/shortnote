@@ -1,0 +1,8 @@
+input {
+    background-color: var(--bs-gray-200) !important;
+    border: 0 !important
+}
+
+btn {
+    border: 0 !important
+}
