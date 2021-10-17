@@ -20,16 +20,14 @@ overview of notes
 
 <div class="container py-4">
     <div class="d-flex align-items-center flex-column">
-        {% for x in '1234567890' %}
-            <div class="card p-2 border-0 mb-3 bg-danger" style="max-width: 540px; --bs-bg-opacity: 0.075">
+        {% for shortnote in shortnotes %}
+            <div class="card p-2 border-0 mb-3 bg-{{shortnote.color}}" style="max-width: 540px; width: 540px; --bs-bg-opacity: 0.075">
                 <div class="card-body ">
-                    <h6 class="card-title">Lorem ipsum dolor sit amet</h6>
-                    <strong class="card-subtitle fs-6 text-danger">
-                    <i class="fad fa-exclamation-circle"></i>
-                    important
+                    <strong class="card-subtitle fs-6 text-{{shortnote.color}}">
+                    {{shortnote.content | safe}}
                     </strong>
                     <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, est aliquam adipisci repudiandae debitis rem! Nemo libero eaque quasi provident
+                    {{shortnote.text}}
                     </p>
                 </div>
             </div>
@@ -40,11 +38,11 @@ overview of notes
 
 <div class="position-fixed bottom-0 py-3 d-flex justify-content-center w-100 d-none" style="z-index: 1000" id="write-form">
     <div class="col-6 d-flex flex-row align-items-stretch">
-        <form action="" method="GET" class="w-100 me-2 d-flex">
+        <form action="" method="POST" class="w-100 me-2 d-flex">
+            {% csrf_token %}
             <div class="position-relative w-100">
-                <input type="text" class="form-control rounded-1 shadow-sm" placeholder="write a shortnote" id="write-input">
+                <input type="text" name='write-input' class="form-control rounded-1 shadow-sm" placeholder="write a shortnote" id="write-input">
             </div>
-
         </form>
         <a href="#" role="button" class="btn btn-primary rounded-1">
             <i class="far fa-arrow-up"></i>
