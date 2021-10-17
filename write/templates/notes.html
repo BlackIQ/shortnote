@@ -5,16 +5,50 @@ overview of notes
 {% endblock title %}
 
 {% block body %}
-<nav>
-    <div class="py-3 position-sticky d-flex justify-content-center">
+<nav class="position-sticky top-0" style="z-index: 1000" id="navbar">
+    <div class="py-3 d-flex justify-content-center">
         <div class="col-6 d-flex flex-row align-items-stretch">
             <form action="" method="GET" class="w-100 me-2 d-flex">
-                <input type="text" class="form-control rounded-pill" placeholder="search for your shortnotes" id="search-input">
+                <input type="text" class="form-control rounded-1 shadow-sm" placeholder="search for your shortnotes" id="search-input">
             </form>
-            <a href="#" role="button" class="btn btn-primary rounded-circle">
+            <button href="#" role="button" class="btn btn-primary rounded-1" id="new-button">
                 <i class="far fa-plus"></i>
-            </a>
+            </button>
         </div>
     </div>
 </nav>
+
+<div class="container py-4">
+    <div class="d-flex align-items-center flex-column">
+        {% for x in '1234567890' %}
+            <div class="card p-2 border-0 mb-3 bg-danger" style="max-width: 540px; --bs-bg-opacity: 0.075">
+                <div class="card-body ">
+                    <h6 class="card-title">Lorem ipsum dolor sit amet</h6>
+                    <strong class="card-subtitle fs-6 text-danger">
+                    <i class="fad fa-exclamation-circle"></i>
+                    important
+                    </strong>
+                    <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, est aliquam adipisci repudiandae debitis rem! Nemo libero eaque quasi provident
+                    </p>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+<div class="position-fixed bottom-0 py-3 d-flex justify-content-center w-100 d-none" style="z-index: 1000" id="write-form">
+    <div class="col-6 d-flex flex-row align-items-stretch">
+        <form action="" method="GET" class="w-100 me-2 d-flex">
+            <div class="position-relative w-100">
+                <input type="text" class="form-control rounded-1 shadow-sm" placeholder="write a shortnote" id="write-input">
+            </div>
+
+        </form>
+        <a href="#" role="button" class="btn btn-primary rounded-1">
+            <i class="far fa-arrow-up"></i>
+        </a>
+    </div>
+</div>
 {% endblock body %}
