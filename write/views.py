@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from .models import *
 
+def home(request):
+    context = {}
+    return render(request, 'home.html', context)
+
 def notes(request):
     shortnotes = Shortnote.objects.all().order_by('-creation')
     if request.method == 'POST':

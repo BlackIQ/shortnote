@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+shortnote write your short notes
+{% endblock title %}
+
+{% block body %}
+<div class="container position-relative d-flex align-items-center justify-content-center flex-column vh-100">
+    <div class="card border-0 align-items-center text-center" style="width: 24rem">
+        <img src="{% static 'media/bg.png' %}" width="200" class="img-fluid mb-3" alt="type">
+        <div class="card-body w-100">
+            <form action="" method="POST">
+                <div class="mb-3">
+                    <input type="text" class="form-control p-2" style="background-color: var(--bs-gray-200)" placeholder="enter a username">
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control p-2" style="background-color: var(--bs-gray-200)" placeholder="enter a password">
+                </div>
+                <button type="submit" class="btn btn-primary">sign up</button>
+            </form>
+        </div>
+    </div>
+    <footer class="position-absolute bottom-0 text-center py-2">
+        <div class="container pb-2">
+            <img src="{% static 'media/shortnote.svg' %}" width="100" class="img-fluid mb-3" alt="logo" draggable="false">
+            <div>
+                based on
+                <a href="https://djangoproject.com"><img src="{% static 'media/django.svg' %}" width="15" alt="django" draggable="false"></a>
+                web framework
+            </div>
+        </div>
+    </footer>
+</div>
+{% endblock body %}
