@@ -2,13 +2,16 @@ from django.shortcuts import render
 from .models import *
 
 def notes(request):
-    shortnotes = Shortnote.objects.all()
+    shortnotes = Shortnote.objects.all().order_by('-creation')
     if request.method == 'POST':
-        text = request.POST.get('write-input')
+        text = request.POST.get('text')
+        status = request.POST.get('status')
         Shortnote.objects.create(
             text = text,
-            status = 'important'
+            status = status
         )
+        if  request.POST.get('text'):
+            Shortnote.objects.delete()
     context = {
         'shortnotes': shortnotes
     }

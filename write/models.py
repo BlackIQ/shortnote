@@ -19,10 +19,11 @@ class Shortnote(models.Model):
             return 'primary'
     def content(self):
         if self.status == 'important':
-            return '<i class="fad fa-exclamation-circle"></i> important'
+            return '<i class="fad fa-exclamation-circle"></i>'
         elif self.status == 'warning':
-            return '<i class="fad fa-exclamation-circle"></i> warning'
+            return '<i class="fad fa-exclamation-circle"></i>'
         else:
             return ''
+
     def __str__(self):
         return self.text

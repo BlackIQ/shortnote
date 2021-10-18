@@ -9,3 +9,9 @@ btn {
 .shadow-sm {
     box-shadow: 0 .125rem .5rem rgba(0,0,0,.075)!important;
 }
+
+.btn-transparent {
+    background: transparent;
+    border: none;
+    padding: 0
+}
