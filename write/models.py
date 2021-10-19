@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Shortnote(models.Model):
     STATUS = (
@@ -9,6 +10,7 @@ class Shortnote(models.Model):
     text     = models.CharField(max_length=1000, blank=False, null=False)
     status   = models.CharField(max_length=1000, blank=False, null=False, choices=STATUS, default='')
     creation = models.DateTimeField(auto_now_add=True, blank=False, null=False)
+    user     = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def color(self):
         if self.status == 'important':

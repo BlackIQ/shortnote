@@ -78,6 +78,5 @@ $(document).on('submit', '#write-form', function($event){
         </div>
         `)
         $('#write-input').val('')
-        document.body.scrollHeight = 0
     })
 })

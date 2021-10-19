@@ -11,21 +11,24 @@ shortnote write your short notes
         <img src="{% static 'media/bg.png' %}" width="200" class="img-fluid mb-3" alt="type">
         <div class="card-body w-100">
             <form action="" method="POST">
+                {% csrf_token %}
                 <div class="mb-3">
-                    <input type="text" class="form-control p-2" style="background-color: var(--bs-gray-200)" placeholder="enter a username">
+                    <input name="username" type="text" class="form-control p-2" style="background-color: var(--bs-gray-200)" placeholder="enter a username">
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control p-2" style="background-color: var(--bs-gray-200)" placeholder="enter a password">
+                    <input  name="password" type="password" class="form-control p-2" style="background-color: var(--bs-gray-200)" placeholder="enter a password">
                 </div>
                 <button type="submit" class="btn btn-primary">sign up</button>
             </form>
         </div>
     </div>
     <footer class="position-absolute bottom-0 text-center py-2">
-        <div class="container pb-2">
-            <img src="{% static 'media/shortnote.svg' %}" width="100" class="img-fluid mb-3" alt="logo" draggable="false">
+        <div class="container pb-2 d-flex align-items-center">
+            <div class="me-2">
+                <img src="{% static 'media/shortnoteicon.svg' %}" width="25" class="img-fluid" alt="logo" draggable="false">
+            </div>
             <div>
-                based on
+                shortnote based on
                 <a href="https://djangoproject.com"><img src="{% static 'media/django.svg' %}" width="15" alt="django" draggable="false"></a>
                 web framework
             </div>
