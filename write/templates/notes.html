@@ -8,29 +8,33 @@ overview of notes
 {% block body %}
 <nav class="navbar navbar-expand-lg bg-white shadow-sm position-sticky top-0" style="z-index: 1000">
   <div class="container-fluid">
-    <a class="" href="{% url 'home' %}">
-        <img src="{% static 'media/shortnote.svg' %}" width="125" alt="logo">
-    </a>
+    <div class="col-3">
+        <a class="" href="{% url 'home' %}">
+            <img src="{% static 'media/shortnote.svg' %}" width="125" alt="logo">
+        </a>
+    </div>
     <div class="col-6">
         <form action="" method="GET" class="w-100 me-2 d-flex">
             <div class="w-100 position-relative">
-                <input type="text" class="form-control rounded-1 shadow-sm" placeholder="search for your shortnotes" id="search-input" autocomplete="off">
+                <input type="text" class="form-control rounded-1" placeholder="search for your shortnotes" id="search-input" autocomplete="off">
                 <button type="button" class="btn-transparent position-absolute top-0" style="transform: translateY(25%); right: 10px; opacity: 0.4">
                     <i class="far fa-search"></i>
                 </button>
             </div>
         </form>
     </div>
-    <a class="" href="#">
-        <img src="{% static 'media/default-avatar.png' %}" width="40" alt="avatar">
-    </a>
+    <div class="col-3 text-right">
+        <a class="" href="#">
+            <img src="{% static 'media/default-avatar.png' %}" width="40" alt="avatar">
+        </a>
+    </div>
   </div>
 </nav>
 <div class="container py-4">
     <div class="d-flex align-items-center flex-column" id="shortnotes">
         {% for shortnote in shortnotes %}
             <div class="mb-3" style="max-width: 540px; width: 540px; z-index: 0">
-                <div class="card col-11 p-2 border-0 bg-{{shortnote.color}}" style="--bs-bg-opacity: 0.075" id="shortnote">
+                <div class="card col-12 p-2 border-0 bg-{{shortnote.color}}" style="--bs-bg-opacity: 0.075" id="shortnote">
                     <div class="card-body">
                         <div>
                             <strong class="card-subtitle fs-6 text-{{shortnote.color}} user-select-none">

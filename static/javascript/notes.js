@@ -3,8 +3,9 @@ addEventListener('keyup', function($event) {
         document.getElementById('search-input').focus()
     }
 })
+
 document.getElementById('write-input').addEventListener('keyup', function() {
-    if (String(document.getElementById('write-input').value).length > 0) {
+    if (String(this.value).length > 0) {
         document.getElementById('send-button').classList.remove('d-none')
         document.getElementById('tool-section').classList.add('d-none')
     } else {
@@ -29,9 +30,9 @@ document.getElementById('pin-button').addEventListener('click', changePin)
 changePin()
 
 var $counter = 0
-var $status = ''
-var $color = ''
-var $content = ''
+var $status
+var $color
+var $content
 function changeStatus() {
     $counter++
     switch ($counter) {
@@ -67,6 +68,11 @@ function changeStatus() {
 changeStatus()
 
 document.getElementById('status').addEventListener('click', changeStatus)
+addEventListener('keyup', function($event) {
+    if ($event.key === '`' && $event.ctrlKey) {
+        changeStatus()
+    }
+})
 
 $(document).on('submit', '#write-form', function($event){
     $event.preventDefault()
@@ -83,7 +89,7 @@ $(document).on('submit', '#write-form', function($event){
     .done(function() {
         $('#shortnotes').prepend(`
         <div class="row mb-3" style="max-width: 540px; width: 540px">
-            <div class="card col-11 p-2 border-0 bg-${$color}" style="--bs-bg-opacity: 0.075">
+            <div class="card col-12 p-2 border-0 bg-${$color}" style="--bs-bg-opacity: 0.075">
                 <div class="card-body">
                     <strong class="card-subtitle fs-6 text-${$color} user-select-none">
                     ${$content}
