@@ -1,0 +1,13 @@
+#send-icon {
+    animation-name: move;
+    animation-duration: 0.5s
+}
+
+@keyframes move {
+    from {
+        transform: translateX(-5px)
+    }
+    to {
+        transform: translateX(0)
+    }
+}

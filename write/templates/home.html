@@ -7,21 +7,29 @@ shortnote write your short notes
 
 {% block body %}
 <div class="container position-relative d-flex align-items-center justify-content-center flex-column vh-100">
-    <div class="card border-0 align-items-center text-center" style="width: 24rem">
-        <img src="{% static 'media/bg.png' %}" width="200" class="img-fluid mb-3" alt="type">
-        <div class="card-body w-100">
-            <form action="" method="POST">
-                {% csrf_token %}
-                <div class="mb-3">
-                    <input name="username" type="text" class="form-control p-2" style="background-color: var(--bs-gray-200)" placeholder="enter a username">
-                </div>
-                <div class="mb-3">
-                    <input  name="password" type="password" class="form-control p-2" style="background-color: var(--bs-gray-200)" placeholder="enter a password">
-                </div>
-                <button type="submit" class="btn btn-primary">sign up</button>
-            </form>
+        <div class="card border-0 align-items-center text-center" style="width: 24rem">
+            <img src="{% static 'media/bg.png' %}" width="200" class="img-fluid mb-3" alt="type">
+            <div class="card-body w-100">
+                {% if not request.user.is_authenticated %}
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <input name="username" type="text" class="form-control p-2" style="background-color: var(--bs-gray-200)" placeholder="enter a username">
+                        </div>
+                        <div class="mb-3">
+                            <input  name="password" type="password" class="form-control p-2" style="background-color: var(--bs-gray-200)" placeholder="enter a password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">sign up</button>
+                    </form>
+                {% else %}
+                        <a class="me-2" href="#"> <img src="{% static 'media/default-avatar.png' %}" width="40" alt="avatar"></a>
+                        <a href="{% url 'notes' %}" class="btn btn-primary">
+                            write your notes
+                            <i class="far fa-arrow-right"></i>
+                        </a>
+                {% endif %}
+            </div>
         </div>
-    </div>
     <footer class="position-absolute bottom-0 text-center py-2">
         <div class="container pb-2 d-flex align-items-center">
             <div class="me-2">

@@ -3,11 +3,15 @@ addEventListener('keyup', function($event) {
         document.getElementById('search-input').focus()
     }
 })
-// document.getElementById('new-button').addEventListener('click', function() {
-//     document.getElementById('navbar').classList.add('d-none')
-//     document.getElementById('write-section').classList.remove('d-none')
-//     document.getElementById('write-input').focus()
-// })
+document.getElementById('write-input').addEventListener('keyup', function() {
+    if (String(document.getElementById('write-input').value).length > 25) {
+        document.getElementById('send-icon').classList.remove('d-none')
+        document.getElementById('tool-icons').classList.add('d-none')
+    } else {
+        document.getElementById('send-icon').classList.add('d-none')
+        document.getElementById('tool-icons').classList.remove('d-none')
+    }
+})
 
 
 // sending form and get it with AJAX
