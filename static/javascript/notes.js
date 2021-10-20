@@ -13,9 +13,8 @@ document.getElementById('write-input').addEventListener('keyup', function() {
     }
 })
 
-
 // sending form and get it with AJAX
-var $pinStatus = ''
+var $pinStatus
 var $pinClass = document.getElementById('pin-icon').classList
 function changePin() {
     if ($pinClass.contains('bi-pin-fill')) {
@@ -27,6 +26,7 @@ function changePin() {
     }
 }
 document.getElementById('pin-button').addEventListener('click', changePin)
+changePin()
 
 var $counter = 0
 var $status = ''
@@ -83,11 +83,6 @@ $(document).on('submit', '#write-form', function($event){
     .done(function() {
         $('#shortnotes').prepend(`
         <div class="row mb-3" style="max-width: 540px; width: 540px">
-            <div class="col-1 d-flex align-items-center">
-                <button type="checkbox" class="btn-transparent" style="opacity: 0.5" id="delete-shortnote">
-                    <i class="fas fa-check-circle fs-5 text-success opacity-50"></i>
-                </button>
-            </div>
             <div class="card col-11 p-2 border-0 bg-${$color}" style="--bs-bg-opacity: 0.075">
                 <div class="card-body">
                     <strong class="card-subtitle fs-6 text-${$color} user-select-none">
