@@ -1,23 +1,31 @@
 {% extends 'base/base.html' %}
+{% load static %}
 
 {% block title %}
 overview of notes
 {% endblock title %}
 
 {% block body %}
-<nav class="position-sticky top-0" style="z-index: 1000" id="navbar">
-    <div class="py-3 d-flex justify-content-center">
-        <div class="col-6 d-flex flex-row align-items-stretch">
-            <form action="" method="GET" class="w-100 me-2 d-flex">
-                <input type="text" class="form-control rounded-1 shadow-sm" placeholder="search for your shortnotes" id="search-input">
-            </form>
-            <button href="#" role="button" class="btn btn-primary rounded-1" id="new-button">
-                <i class="far fa-plus"></i>
-            </button>
-        </div>
+<nav class="navbar navbar-expand-lg bg-white shadow-sm">
+  <div class="container-fluid">
+    <a class="" href="#">
+        <img src="{% static 'media/shortnote.svg' %}" width="125" alt="logo">
+    </a>
+    <div class="col-6">
+        <form action="" method="GET" class="w-100 me-2 d-flex">
+            <div class="w-100 position-relative">
+                <input type="text" class="form-control rounded-1 shadow-sm" placeholder="search for your shortnotes" id="search-input" autocomplete="off">
+                <button type="button" class="btn-transparent position-absolute top-0" style="transform: translateY(25%); right: 10px; opacity: 0.4">
+                    <i class="far fa-search"></i>
+                </button>
+            </div>
+        </form>
     </div>
+    <a class="" href="#">
+        <img src="{% static 'media/default-avatar.png' %}" width="40" alt="avatar">
+    </a>
+  </div>
 </nav>
-
 <div class="container py-4">
     <div class="d-flex align-items-center flex-column" id="shortnotes">
         {% for shortnote in shortnotes%}
@@ -42,22 +50,22 @@ overview of notes
     </div>
 </div>
 
-<div class="position-fixed bottom-0 py-3 d-flex justify-content-center w-100 d-none" style="z-index: 1000" id="write-section">
-    <div class="col-6 d-flex flex-row align-items-stretch">
+<div class="position-fixed bottom-0 py-3 d-flex justify-content-center w-100" style="z-index: 1000" id="write-section">
+    <div class="col-8 d-flex flex-row align-items-stretch">
         <form method="POST" class="w-100 d-flex" id="write-form">
             {% csrf_token %}
             <div class="position-relative w-100 me-2">
-                <input type="text" name='write-input' class="form-control rounded-1 shadow-sm" placeholder="write a shortnote" id="write-input">
+                <input type="text" name='write-input' class="form-control rounded-1 shadow-sm" placeholder="write a shortnote" id="write-input" autofocus>
                 <button type="button" class="btn-transparent position-absolute top-0" style="transform: translateY(25%); right: 10px; opacity: 0.4">
+                    <i class="far fa-arrow-right"></i>
+                </button>
+                <button type="button" class="btn-transparent position-absolute top-0" style="transform: translateY(25%); right: 35px; opacity: 0.4">
                     <i class="bi bi-pin-fill"></i>
                 </button>
-                <button type="button" class="btn-transparent position-absolute top-0 text-primary" style="transform: translateY(25%); right: 35px; opacity: 0.4" id="status">
+                <button type="button" class="btn-transparent position-absolute top-0 text-primary" style="transform: translateY(25%); right: 60px; opacity: 0.4" id="status">
                     <i class="far fa-asterisk"></i>
                 </button>
             </div>
-            <button class="btn btn-primary rounded-1">
-                <i class="far fa-arrow-up"></i>
-            </button>
         </form>
     </div>
 </div>

@@ -1,0 +1,1 @@
+$('input').attr('autocomplete','off')
