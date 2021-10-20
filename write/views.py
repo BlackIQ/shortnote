@@ -10,7 +10,7 @@ def home(request):
         password = request.POST.get('password')
         User.objects.create_user(
             username = username,
-            password= password
+            password = password
         )
         user = authenticate(request, username=username, password=password)
         if user is not None:
@@ -25,9 +25,11 @@ def notes(request):
     if request.method == 'POST':
         text = request.POST.get('text')
         status = request.POST.get('status')
+        pin = request.POST.get('pin')
         Shortnote.objects.create(
             text   = text,
             status = status,
+            pin    = pin,
             user   = request.user
         )
     context = {

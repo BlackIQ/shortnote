@@ -4,17 +4,30 @@ addEventListener('keyup', function($event) {
     }
 })
 document.getElementById('write-input').addEventListener('keyup', function() {
-    if (String(document.getElementById('write-input').value).length > 25) {
-        document.getElementById('send-icon').classList.remove('d-none')
-        document.getElementById('tool-icons').classList.add('d-none')
+    if (String(document.getElementById('write-input').value).length > 0) {
+        document.getElementById('send-button').classList.remove('d-none')
+        document.getElementById('tool-section').classList.add('d-none')
     } else {
-        document.getElementById('send-icon').classList.add('d-none')
-        document.getElementById('tool-icons').classList.remove('d-none')
+        document.getElementById('send-button').classList.add('d-none')
+        document.getElementById('tool-section').classList.remove('d-none')
     }
 })
 
 
 // sending form and get it with AJAX
+var $pinStatus = ''
+var $pinClass = document.getElementById('pin-icon').classList
+function changePin() {
+    if ($pinClass.contains('bi-pin-fill')) {
+        $pinClass.replace('bi-pin-fill', 'bi-pin-angle-fill')
+        $pinStatus = 'True'
+    } else if ($pinClass.contains('bi-pin-angle-fill')) {
+        $pinClass.replace('bi-pin-angle-fill', 'bi-pin-fill')
+        $pinStatus = 'False'
+    }
+}
+document.getElementById('pin-button').addEventListener('click', changePin)
+
 var $counter = 0
 var $status = ''
 var $color = ''
@@ -63,6 +76,7 @@ $(document).on('submit', '#write-form', function($event){
         data: {
             text: $('#write-input').val(),
             status: $status,
+            pin: $pinStatus,
             csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
         },
     })
