@@ -21,7 +21,7 @@ def home(request):
 
 @login_required(login_url='home')
 def notes(request):
-    shortnotes = Shortnote.objects.filter(user=request.user).order_by('-creation')
+    shortnotes = Shortnote.objects.filter(user=request.user).order_by('-creation', '-pin')
     if request.method == 'POST':
         text = request.POST.get('text')
         status = request.POST.get('status')
