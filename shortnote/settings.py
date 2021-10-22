@@ -1,6 +1,4 @@
-
 from pathlib import Path
-import django_heroku
 import os
 from .secret import SECRET_KEY as SECRET
 
@@ -90,8 +88,4 @@ STATICFILES_DIRS = [
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-django_heroku.settings(locals())
