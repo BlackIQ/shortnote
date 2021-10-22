@@ -1,0 +1,1 @@
+web: gunicorn shortnote.wsgi
