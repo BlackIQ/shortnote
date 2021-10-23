@@ -9,7 +9,7 @@ with shortnote you can write (or maybe type) your short notes such as homeworks,
 
 ## how to use
 
-This project is a website. So it has a server or a plateform. If you want to run in in your system, you should do there steps:
+This project is a website. So it has a server or a plateform. If you want to run in it your system, you should do there steps:
 
 - **Clone or download the repo**
 
